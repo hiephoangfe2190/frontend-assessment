@@ -11,7 +11,7 @@ The project was implemented using **React (Vite)** with a modular component stru
 
 Vercel Deployment:
 
-https://your-vercel-demo-link.vercel.app
+https://hieph-frontend-assessment.vercel.app/
 
 ---
 
@@ -35,6 +35,7 @@ https://github.com/hiephoangfe2190/frontend-assessment
 
 ## Project Structure
 
+```
 src
 │
 ├── App.jsx
@@ -57,7 +58,6 @@ src
 │   └── AppRoutes.jsx
 │
 ├── components
-│   │
 │   ├── common
 │   │   └── back-button
 │   │       ├── BackButton.jsx
@@ -91,9 +91,8 @@ src
     │   └── exercise-one-page.scss
     │
     └── exercise-two-page
-        ├── ExerciseTwoPage.jsx
-
----
+        └── ExerciseTwoPage.jsx
+```
 
 # Installation & Running the Project
 
