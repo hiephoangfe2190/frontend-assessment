@@ -96,25 +96,39 @@ src
 
 # Installation & Running the Project
 
-Clone the repository:
+Follow these steps to run the project locally.
 
+## 1. Clone the repository
+
+```bash
 git clone https://github.com/hiephoangfe2190/frontend-assessment.git
+```
 
-Navigate to the project folder:
+## 2. Navigate to the project directory
 
+```bash
 cd frontend-assessment
+```
 
-Install dependencies:
+## 3. Install dependencies
 
+```bash
 npm install
+```
 
-Start the development server:
+## 4. Start the development server
 
+```bash
 npm run dev
+```
 
-The app will run at:
+## 5. Open the application
 
+After the server starts, open your browser and visit:
+
+```
 http://localhost:5173
+```
 
 ---
 
