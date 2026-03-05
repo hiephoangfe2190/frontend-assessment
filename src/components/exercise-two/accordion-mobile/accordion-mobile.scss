@@ -1,0 +1,7 @@
+.accordion-mobile { 
+  &__content-wrapper {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s ease;
+  }
+}

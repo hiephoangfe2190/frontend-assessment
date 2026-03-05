@@ -1,0 +1,24 @@
+.exercise-one {
+  &__content {
+    max-width: 1055px;
+    margin: 40px auto;
+    padding: 0px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 38px;
+  }
+
+  @media (max-width: 980px) {
+    &__content {
+      grid-template-columns: repeat(
+        auto-fit,
+        minmax(300px, 1fr)
+      );
+    }
+  }
+  @media (max-width: 375px) {
+    &__content {
+      padding: 0px 25px;
+    }
+  }
+}

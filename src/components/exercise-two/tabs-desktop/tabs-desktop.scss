@@ -1,0 +1,33 @@
+.tabs-desktop {
+  &__indicator {
+    position: absolute;
+    bottom: -2px;
+    height: 2px;
+    background: #000;
+    transition: left 0.3s ease, width 0.3s ease;
+  }
+
+  &__button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+
+    &--active {
+      font-weight: 600;
+    }
+  }
+
+  &__content {
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  &__content--fade-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &__content--fade-out {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}

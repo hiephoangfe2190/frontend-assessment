@@ -1,0 +1,56 @@
+.app-layout {
+  &__link {
+    position: relative;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    color: #666666;
+    padding: 8px 0;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #000000;
+    }
+
+    /* underline animation */
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0%;
+      height: 2px;
+      background: #000000;
+      transition: width 0.3s ease;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+
+    &--active {
+      color: #000000;
+      font-weight: 600;
+    }
+
+    &--active::after {
+      width: 100%;
+    }
+  }
+
+  &__content {
+    animation: fade-in 0.4s ease;
+  }
+}
+
+/* page fade animation */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,40 +1,210 @@
-Introduction
+
+# MindArc Frontend Assessment – React Implementation
+
+This repository contains my solution for the MindArc Frontend Technical Assessment.
+
+The project was implemented using **React (Vite)** with a modular component structure and responsive UI that follows the requirements described in the assessment.
+
 ---
-Thanks for taking the time to complete this frontend technical assessment. We will be focusing on software quality (scalability, readability, maintainability, etc.) and your eye for detail. You may include any libraries, but Vue.js is preferred and jQuery is not recommended. Along with following best practices, bonus points for following our [coding guidelines](https://github.com/mindarc/frontend-assessment/wiki/Coding-guidelines). 
 
-Exercise 1
+## Live Demo
+
+Vercel Deployment:
+
+https://your-vercel-demo-link.vercel.app
+
 ---
-Build a responsive page based on the designs.
 
-##### Requirements
-1. Match the designs exactly.
-2. Needs to be responsive.
+## Repository
 
-##### Designs
-* exercise1-desktop.png
-* exercise1-mobile.png
+GitHub Repository:
 
-##### Assets
-* Desktop banner - [https://via.placeholder.com/1920x650](https://placehold.co/1920x650)
-* Mobile banner - [https://via.placeholder.com/600x600](https://placehold.co/600x600)
-* Content images - [https://via.placeholder.com/400x300](https://placehold.co/400x300)
+https://github.com/hiephoangfe2190/frontend-assessment
 
-Exercise 2
 ---
-Read the `data.json` file and display the data as tabs on desktop and an accordion on mobile.
 
-##### Requirements
-1. Display data in tabs on desktop.
-2. Display data in an accordion on mobile.
-3. Only 1 accordion/tab should be open at a time.
-4. Open the first accordion/tab on load.
-5. If the open accordion is selected, close it.
+## Tech Stack
 
-###### Bonus points
-* Improve the user experience with meaningful animations/transitions.
-* Design and styling.
-* Explain why the result of `('b' + 'a' + + 'a' + 'a').toLowerCase()` is `banana`.
+- React
+- Vite
+- SCSS
+- React Router
+- Responsive layout with custom hooks
 
-Submission
 ---
-We recommend submitting your completed assessment as a forked repository. Please replace README content with instructions and relevant documentation.
+
+## Project Structure
+
+src
+│
+├── App.jsx
+├── app-layout.scss
+├── main.jsx
+│
+├── styles
+│   └── global.css
+│
+├── assets
+│   └── react.svg
+│
+├── data
+│   └── data.json
+│
+├── hooks
+│   └── useResponsiveView.jsx
+│
+├── routes
+│   └── AppRoutes.jsx
+│
+├── components
+│   │
+│   ├── common
+│   │   └── back-button
+│   │       ├── BackButton.jsx
+│   │       └── back-button.scss
+│   │
+│   ├── exercise-one
+│   │   ├── hero-banner
+│   │   │   ├── HeroBanner.jsx
+│   │   │   └── hero-banner.scss
+│   │   │
+│   │   └── content-card
+│   │       ├── ContentCard.jsx
+│   │       └── content-card.scss
+│   │
+│   └── exercise-two
+│       ├── tabs-desktop
+│       │   ├── TabsDesktop.jsx
+│       │   └── tabs-desktop.scss
+│       │
+│       └── accordion-mobile
+│           ├── AccordionMobile.jsx
+│           └── accordion-mobile.scss
+│
+└── pages
+    ├── home-page
+    │   ├── HomePage.jsx
+    │   └── home-page.scss
+    │
+    ├── exercise-one-page
+    │   ├── ExerciseOnePage.jsx
+    │   └── exercise-one-page.scss
+    │
+    └── exercise-two-page
+        ├── ExerciseTwoPage.jsx
+
+---
+
+# Installation & Running the Project
+
+Clone the repository:
+
+git clone https://github.com/hiephoangfe2190/frontend-assessment.git
+
+Navigate to the project folder:
+
+cd frontend-assessment
+
+Install dependencies:
+
+npm install
+
+Start the development server:
+
+npm run dev
+
+The app will run at:
+
+http://localhost:5173
+
+---
+
+# Exercise 1
+
+Implemented a fully responsive page based on the provided designs.
+
+Features:
+
+- Responsive layout
+- Reusable components
+- Clean SCSS structure
+- Desktop and mobile banner support
+
+Components used:
+
+- HeroBanner
+- ContentCard
+
+---
+
+# Exercise 2
+
+Reads data.json and renders the UI differently depending on screen size.
+
+Desktop:
+- Displayed as Tabs
+
+Mobile:
+- Displayed as Accordion
+
+Features implemented:
+
+- Only one tab/accordion open at a time
+- First tab automatically open on page load
+- Clicking an open accordion closes it
+- Responsive detection using useResponsiveView hook
+
+Components used:
+
+- TabsDesktop
+- AccordionMobile
+
+---
+
+# Responsive Strategy
+
+A custom hook is used to detect screen width:
+
+useResponsiveView()
+
+This determines whether to render:
+
+- Tabs (desktop)
+- Accordion (mobile)
+
+---
+
+# Bonus Question
+
+Explain why:
+
+('b' + 'a' + + 'a' + 'a').toLowerCase()
+
+returns:
+
+"banana"
+
+Step-by-step explanation:
+
+1. 'b' + 'a' = "ba"
+2. +'a' attempts to convert "a" into a number → NaN
+3. Expression becomes: "ba" + NaN + "a"
+4. During string concatenation NaN becomes "NaN"
+5. Result: "baNaNa"
+6. toLowerCase() → "banana"
+
+---
+
+# Improvements & UX Enhancements
+
+- Smooth accordion expand/collapse animations
+- Modular component structure
+- SCSS naming following BEM-style conventions
+- Reusable layout and routing system
+
+---
+
+# Author
+
+Hiep Hoang
+Frontend Developer
