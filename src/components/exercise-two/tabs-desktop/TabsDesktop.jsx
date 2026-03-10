@@ -1,8 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import "./tabs-desktop.scss";
 
-const TabsDesktop = ({ sections }) => {
-  const [activeIndex, setActiveIndex] = useState(0);
+const TabsDesktop = ({ sections, activeIndex, setActiveIndex }) => {
   const [isAnimating, setIsAnimating] = useState(false);
 
   const tabButtonRefs = useRef([]);
@@ -25,6 +24,11 @@ const TabsDesktop = ({ sections }) => {
 
   useEffect(() => {
     updateIndicatorPosition();
+
+    window.addEventListener("resize", updateIndicatorPosition);
+
+    return () =>
+      window.removeEventListener("resize", updateIndicatorPosition);
   }, [activeIndex]);
 
   const handleTabClick = (index) => {
@@ -47,9 +51,7 @@ const TabsDesktop = ({ sections }) => {
           return (
             <button
               key={section.title}
-              ref={(element) =>
-                (tabButtonRefs.current[index] = element)
-              }
+              ref={(element) => (tabButtonRefs.current[index] = element)}
               className={`tabs-desktop__button flex-1 py-4 text-base font-medium transition-colors duration-300 hover:text-black ${
                 isActive ? "tabs-desktop__button--active" : ""
               }`}
@@ -71,7 +73,9 @@ const TabsDesktop = ({ sections }) => {
 
       <div
         className={`tabs-desktop__content py-10 leading-[1.7] ${
-          isAnimating ? "tabs-desktop__content--fade-out" : "tabs-desktop__content--fade-in"
+          isAnimating
+            ? "tabs-desktop__content--fade-out"
+            : "tabs-desktop__content--fade-in"
         }`}
         dangerouslySetInnerHTML={{
           __html: sections[activeIndex].content,

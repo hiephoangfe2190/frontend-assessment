@@ -1,4 +1,5 @@
 import "./content-card.scss";
+import { Link } from "react-router-dom";
 
 const ContentCard = ({ description }) => {
   return (
@@ -16,9 +17,9 @@ const ContentCard = ({ description }) => {
           {description}
         </p>
 
-        <button className="content-card__button self-center">
+        <Link to="" className="content-card__button self-center">
           READ MORE
-        </button>
+        </Link>
       </div>
     </article>
   );

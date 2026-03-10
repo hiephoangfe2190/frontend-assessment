@@ -1,15 +1,16 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import "./accordion-mobile.scss";
 
-const AccordionMobile = ({ sections }) => {
-  const [activeIndex, setActiveIndex] = useState(null);
+const AccordionMobile = ({ sections, activeIndex, setActiveIndex }) => {
   const contentWrapperRefs = useRef([]);
 
   const expandSection = (index) => {
     const element = contentWrapperRefs.current[index];
+
     if (!element) return;
 
     const height = element.scrollHeight;
+
     element.style.height = height + "px";
 
     setTimeout(() => {
@@ -19,6 +20,7 @@ const AccordionMobile = ({ sections }) => {
 
   const collapseSection = (index) => {
     const element = contentWrapperRefs.current[index];
+
     if (!element) return;
 
     element.style.height = element.scrollHeight + "px";
@@ -40,14 +42,16 @@ const AccordionMobile = ({ sections }) => {
       }
 
       setActiveIndex(index);
+
       setTimeout(() => expandSection(index), 0);
     }
   };
 
   useEffect(() => {
-    setActiveIndex(0);
-    expandSection(0);
-  }, []);
+    if (activeIndex !== null) {
+      expandSection(activeIndex);
+    }
+  }, [activeIndex]);
 
   return (
     <div className="accordion-mobile pt-[70px] flex flex-col gap-4 px-5">
