@@ -44,6 +44,7 @@ const HeroBanner = () => {
   };
 
   const startAutoSlide = () => {
+    clearInterval(intervalRef.current);
     intervalRef.current = setInterval(goNext, AUTO_SLIDE_INTERVAL);
   };
 
@@ -62,10 +63,15 @@ const HeroBanner = () => {
 
   const handleTouchEnd = (e) => {
 
-    const touchEndX = e.changedTouches[0].clientX;
+    if (touchStartX.current === null) return;
 
-    if (touchStartX.current - touchEndX > 50) goNext();
-    if (touchEndX - touchStartX.current > 50) goPrev();
+    const touchEndX = e.changedTouches[0].clientX;
+    const diff = touchStartX.current - touchEndX;
+
+    if (diff > 50) goNext();
+    if (diff < -50) goPrev();
+
+    touchStartX.current = null;
 
   };
 
@@ -85,6 +91,7 @@ const HeroBanner = () => {
         <button
           className="hero-banner__arrow hero-banner__arrow--left"
           onClick={goPrev}
+          onTouchStart={(e) => e.stopPropagation()}
         >
 
           <picture>
@@ -134,6 +141,7 @@ const HeroBanner = () => {
         <button
           className="hero-banner__arrow hero-banner__arrow--right"
           onClick={goNext}
+          onTouchStart={(e) => e.stopPropagation()}
         >
 
           <picture>
