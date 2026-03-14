@@ -1,53 +1,104 @@
 .content-card {
-  border-radius: 8px;
-  border: 1px solid #e5e5e5;
-  background-color: #ffffff;
 
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  &__brand {
 
-  &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    font-size: var(--font-size-sm);
+
+    font-weight: 400;
+
+    font-family: var(--font-system);
+
+    line-height: var(--line-tight);
+
+    margin-bottom: 4px;
+
   }
 
-  &__description {
-    line-height: 1.4;
-    margin-top: 0;
-    margin-bottom: 12px;
-    font-size: 17px;
+  &__title {
+
+    font-size: var(--font-size-sm);
+
+    font-weight: 400;
+
+    font-family: var(--font-system);
+
   }
 
-  &__button {
-    padding: 10px 24px;
-    border-radius: 40px;
-    border: 3px solid #000000;
-    background: transparent;
+  &__price {
 
-    font-size: 12px;
-    letter-spacing: 2px;
-    font-weight: bold;
+    display: flex;
 
-    cursor: pointer;
+    gap: 8px;
 
-    transition: all 0.3s ease;
-    text-decoration: none;
-    display: inline-block;
+    align-items: center;
 
-    &:hover {
-      background-color: #000000;
-      color: #ffffff;
+  }
+
+  &__price-current {
+
+    font-size: var(--font-size-sm);
+
+    font-family: var(--font-system);
+
+  }
+
+  &__price-old {
+
+    font-size: var(--font-size-sm);
+
+    font-family: var(--font-system);
+
+    color: #AAAAAA;
+
+    text-decoration: line-through;
+
+  }
+
+}
+
+/* mobile typography */
+
+@media (max-width:576px) {
+
+  .content-card {
+
+    &__title {
+
+      font-size: var(--font-size-xs);
+
+      font-family: var(--font-primary);
+
+      line-height: var(--line-relaxed);
+
+      margin-bottom: 4px;
+
     }
+
+    &__brand {
+
+      font-size: var(--font-size-xs);
+
+      font-weight: 500;
+
+      font-family: var(--font-primary);
+
+      line-height: var(--line-relaxed);
+
+      margin-bottom: 4px;
+
+    }
+
+    &__price-current,
+    &__price-old {
+
+      font-size: var(--font-size-xs);
+
+      font-family: var(--font-primary);
+
+      line-height: var(--line-relaxed);
+
+    }
+
   }
 
-  @media (max-width: 768px) {
-    &__description {
-      font-size: 18px;
-    }
-  }
-
-  @media (max-width: 375px) {
-    &__description {
-      font-size: 17px;
-    }
-  }
 }

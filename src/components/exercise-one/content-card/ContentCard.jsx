@@ -1,28 +1,119 @@
 import "./content-card.scss";
-import { Link } from "react-router-dom";
 
-const ContentCard = ({ description }) => {
+const ContentCard = ({
+  brandName,
+  heading,
+  price,
+  oldPrice,
+  imageDesktop,
+  imageMobile,
+  link = "#"
+}) => {
+
   return (
-    <article className="content-card flex flex-col h-full">
-      <div className="content-card__image-wrapper pt-5 px-5">
-        <img
-          className="content-card__image w-full block rounded-lg"
-          src="https://placehold.co/400x300"
-          alt="Card image"
+
+    <a
+      href={link}
+      className="
+      content-card
+      group
+      flex flex-col
+      w-full
+      no-underline
+      text-inherit
+      transition-all
+      duration-300
+      hover:-translate-y-[6px]
+      hover:shadow-[0_12px_24px_rgba(0,0,0,0.18)]
+      "
+    >
+
+      <picture
+        className="
+        content-card__picture
+        w-full
+        block
+        overflow-hidden
+        aspect-[456/710]
+        max-[576px]:aspect-[173/276]
+        "
+      >
+
+        <source
+          media="(max-width:768px)"
+          srcSet={imageMobile}
         />
+
+        <img
+          src={imageDesktop}
+          alt={heading}
+          className="
+          content-card__image
+          w-full
+          h-full
+          object-cover
+          block
+          transition-transform
+          duration-500
+          group-hover:scale-105
+          "
+        />
+
+      </picture>
+
+      <div
+        className="
+        content-card__info
+        grid
+        grid-cols-[1fr_auto]
+        grid-rows-[auto_auto]
+        w-full
+        bg-[#52994B]
+        text-white
+        px-[12px]
+        py-[8px]
+
+        max-[768px]:grid-cols-1
+        max-[768px]:grid-rows-[auto_auto_auto]
+        max-[768px]:px-[8px]
+        "
+      >
+
+        <span className="content-card__brand col-span-2 max-[768px]:col-auto">
+          {brandName}
+        </span>
+
+        <h3 className="content-card__title">
+          {heading}
+        </h3>
+
+        <div
+          className="
+          content-card__price
+          flex
+          gap-[8px]
+          items-center
+          justify-self-end
+          max-[768px]:justify-self-start
+          "
+        >
+
+          <span className="content-card__price-current">
+            {price}
+          </span>
+
+          <span className="content-card__price-old">
+            {oldPrice}
+          </span>
+
+        </div>
+
       </div>
 
-      <div className="content-card__body flex flex-col flex-1 p-5 text-center">
-        <p className="content-card__description flex-grow">
-          {description}
-        </p>
+    </a>
 
-        <Link to="" className="content-card__button self-center">
-          READ MORE
-        </Link>
-      </div>
-    </article>
   );
+
 };
 
 export default ContentCard;

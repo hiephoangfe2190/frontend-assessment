@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import TabsDesktop from "../../components/exercise-two/tabs-desktop/TabsDesktop";
 import AccordionMobile from "../../components/exercise-two/accordion-mobile/AccordionMobile";
 import sectionsData from "../../data/data.json";
@@ -9,7 +9,13 @@ const ExerciseTwoPage = () => {
   const { isDesktop } = useResponsiveView(768);
 
   const [activeIndex, setActiveIndex] = useState(0);
-
+  useEffect(() => {
+    if (isDesktop && activeIndex === null) {
+      setActiveIndex(0);
+    }
+  }, [isDesktop]);
+  
+  
   return (
     <div className="pt-5">
       <BackButton />

@@ -1,24 +1,29 @@
-.exercise-one {
-  &__content {
-    max-width: 1055px;
-    margin: 40px auto;
-    padding: 0px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 38px;
+.exercise-one-page {
+
+  &__heading {
+
+    font-size: var(--font-size-xl);
+
+    font-weight: 400;
+
+    font-family: var(--font-system);
+
+    line-height: var(--line-compact);
+
   }
 
-  @media (max-width: 980px) {
-    &__content {
-      grid-template-columns: repeat(
-        auto-fit,
-        minmax(300px, 1fr)
-      );
-    }
+}
+
+@media (max-width:576px) {
+
+  .exercise-one-page__heading {
+
+    font-size: var(--font-size-lg);
+
+    font-family: var(--font-secondary);
+
+    line-height: var(--line-normal);
+
   }
-  @media (max-width: 375px) {
-    &__content {
-      padding: 0px 25px;
-    }
-  }
+
 }

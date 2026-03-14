@@ -1,1 +1,37 @@
 @import "tailwindcss";
+
+:root {
+
+  /* fonts */
+  --font-primary: "Poppins", Arial, sans-serif;
+  --font-secondary: "Roboto", Arial, sans-serif;
+  --font-system: Arial, Helvetica, sans-serif;
+
+  /* font sizes */
+  --font-size-xs: 10px;
+  --font-size-sm: 12px;
+  --font-size-md: 16px;
+  --font-size-lg: 32px;
+  --font-size-xl: 48px;
+  --font-size-xxl: 56px;
+
+  /* line heights */
+  --line-tight: 1;
+  --line-snug: 1.1;
+  --line-compact: 1.15;
+  --line-normal: 1.2;
+  --line-relaxed: 1.5;
+
+  
+
+}
+
+body {
+
+  font-family: var(--font-primary);
+  line-height: 1.5;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+}

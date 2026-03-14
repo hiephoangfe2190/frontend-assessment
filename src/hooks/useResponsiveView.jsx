@@ -1,17 +1,18 @@
 import { useEffect, useState } from "react";
 
 const useResponsiveView = (breakpoint = 768) => {
-  const [isDesktop, setIsDesktop] = useState(
-    window.innerWidth > breakpoint
-  );
+  const getIsDesktop = () => window.innerWidth > breakpoint;
+
+  const [isDesktop, setIsDesktop] = useState(getIsDesktop);
 
   useEffect(() => {
     const handleResize = () => {
-      const isDesktopView = window.innerWidth > breakpoint;
-      setIsDesktop(isDesktopView);
+      setIsDesktop(getIsDesktop());
     };
 
     window.addEventListener("resize", handleResize);
+
+    handleResize();
 
     return () => {
       window.removeEventListener("resize", handleResize);
