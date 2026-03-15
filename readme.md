@@ -90,8 +90,12 @@ src
     │   ├── ExerciseOnePage.jsx
     │   └── exercise-one-page.scss
     │
-    └── exercise-two-page
-        └── ExerciseTwoPage.jsx
+    ├── exercise-two-page
+    │   └── ExerciseTwoPage.jsx
+    │
+    └── not-found-page
+        ├── NotFoundPage.jsx
+        └── not-found-page.scss
 ```
 
 # Installation & Running the Project
